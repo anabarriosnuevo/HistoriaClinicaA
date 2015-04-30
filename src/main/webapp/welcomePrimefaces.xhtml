@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <h:form id="f_paciente">
+
+                <p:accordionPanel id="socio_demo"  >
+
+                    <p:tab id="seccion_p" title="Paciente">
+                        <h:panelGrid columns="3" cellpadding="10">
+
+
+                            <h:outputLabel>Nombre:</h:outputLabel>
+                            <p:inputText id="p_nombre" value="#{paciente.nombre}"  />
+                            <h:outputLabel/>
+                            <h:outputLabel>Apellidos</h:outputLabel>
+                            <p:inputText id="p_apellidos" value="#{paciente.apellidos}"  />
+                            <h:outputLabel/>
+
+                            <h:outputLabel>Sexo</h:outputLabel>
+                            <h:selectOneMenu id="p_sexo" value="#{paciente.fenotipoSexual}" >
+                                <f:selectItems value="#{fenotipoSexual.sexos}" />
+                            </h:selectOneMenu>
+                            <h:outputLabel/>
+
+                            <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento:" />
+
+                            <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" pattern="dd/MM/yyyy" mask="true" >
+                                <p:ajax event="dateSelect" process="@this"
+                                        listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@(#f_paciente)" />
+                               
+                        </p:calendar>
+                        <h:outputLabel>dd/MM/AAAA</h:outputLabel>   
+                        <h:outputLabel>Meses</h:outputLabel>
+                        <p:inputText id="p_meses" value="#{paciente.meses}"  >
+                        </p:inputText>
+                        <h:outputLabel/>
+
+                        <h:outputLabel>Días de Nacido</h:outputLabel>
+                        <p:inputText id="p_dias" value="#{paciente.dias}"  />
+
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab id="seccion_p2" title="Diagnóstico">
+                    <h:panelGrid columns="2" cellpadding="10">
+
+
+                    </h:panelGrid>
+                </p:tab>
+
+                <p:ajax event="tabChange"  listener="#{vistaPaciente.cambioTab}"  />
+                <p:ajax event="tabClose" listener="#{vistaPaciente.cerroTab}"  />
+                <p:ajax event="tabChange"  
+                        partialSubmit="true" process="seccion_p,seccion_p2"/>
+                <p:ajax event="tabClose"  
+                        partialSubmit="true" process="seccion_p,seccion_p2"/>
+
+            </p:accordionPanel>
+        </h:form>   
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+
