@@ -48,24 +48,24 @@
 
 
                             <h:panelGroup>
-                              <h:outputLabel>Nombre:</h:outputLabel>
-                              <h:outputLabel style="color:red"> *</h:outputLabel>
+                                <h:outputLabel value="Nombre:"/>
+                                <h:outputLabel style="color:red"  value="*" />
                             </h:panelGroup>
                           
                             <p:inputText id="p_nombre" value="#{paciente.nombre}" required="true"  />
                             <h:outputLabel/>
                             
                              <h:panelGroup>
-                              <h:outputLabel>Apellidos: </h:outputLabel>
-                              <h:outputLabel style="color:red"> *</h:outputLabel>                              
+                                 <h:outputLabel value="Apellidos:" />
+                                 <h:outputLabel style="color:red" value="*" />                              
                             </h:panelGroup>
                      
                             <p:inputText id="p_apellidos" value="#{paciente.apellidos}" required="true" />
                             <h:outputLabel/>
 
                              <h:panelGroup>
-                              <h:outputLabel>Sexo: </h:outputLabel>
-                              <h:outputLabel style="color:red"> *</h:outputLabel>                              
+                                 <h:outputLabel value="Sexo:" />
+                                 <h:outputLabel style="color:red"  value="*" />                              
                             </h:panelGroup>
                             
                             <h:selectOneMenu id="p_sexo" value="#{paciente.fenotipoSexual}" >
@@ -73,11 +73,14 @@
                             </h:selectOneMenu>
                             <h:outputLabel/>
 
-                            <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento:" />
-
+                              <h:panelGroup>
+                                    <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento: " />
+                                 <h:outputLabel style="color:red"  value="*" />                              
+                            </h:panelGroup>
+                          
                             <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" pattern="dd/MM/yyyy" mask="true" >
                                 <p:ajax event="dateSelect" process="@this"
-                                        listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@(#f_paciente)" />
+                                        listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@form:socio_demo:p_meses, @form:socio_demo:p_dias" />
                                
                         </p:calendar>
                         <h:outputLabel>dd/MM/AAAA</h:outputLabel>   
