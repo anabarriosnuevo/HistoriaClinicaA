@@ -47,14 +47,27 @@
                         <h:panelGrid columns="3" cellpadding="10">
 
 
-                            <h:outputLabel>Nombre:</h:outputLabel>
-                            <p:inputText id="p_nombre" value="#{paciente.nombre}"  />
+                            <h:panelGroup>
+                              <h:outputLabel>Nombre:</h:outputLabel>
+                              <h:outputLabel style="color:red"> *</h:outputLabel>
+                            </h:panelGroup>
+                          
+                            <p:inputText id="p_nombre" value="#{paciente.nombre}" required="true"  />
                             <h:outputLabel/>
-                            <h:outputLabel>Apellidos</h:outputLabel>
-                            <p:inputText id="p_apellidos" value="#{paciente.apellidos}"  />
+                            
+                             <h:panelGroup>
+                              <h:outputLabel>Apellidos: </h:outputLabel>
+                              <h:outputLabel style="color:red"> *</h:outputLabel>                              
+                            </h:panelGroup>
+                     
+                            <p:inputText id="p_apellidos" value="#{paciente.apellidos}" required="true" />
                             <h:outputLabel/>
 
-                            <h:outputLabel>Sexo</h:outputLabel>
+                             <h:panelGroup>
+                              <h:outputLabel>Sexo: </h:outputLabel>
+                              <h:outputLabel style="color:red"> *</h:outputLabel>                              
+                            </h:panelGroup>
+                            
                             <h:selectOneMenu id="p_sexo" value="#{paciente.fenotipoSexual}" >
                                 <f:selectItems value="#{fenotipoSexual.sexos}" />
                             </h:selectOneMenu>
