@@ -4,7 +4,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-
+    
     <f:view contentType="text/html">
         <h:head>
             <f:facet name="first">
@@ -12,19 +12,19 @@
                 <title>PrimeFaces</title>
             </f:facet>
         </h:head>
-
+        
         <h:body>
-
+            
             <p:layout fullPage="true">
-
+                
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    Header
+                    HISTORIA CLINICA
                 </p:layoutUnit>
-
+                
                 <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
                     Footer
                 </p:layoutUnit>
-
+                
                 <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
                     <p:menu>
                         <p:submenu label="Resources">
@@ -32,90 +32,88 @@
                             <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
                             <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
                             <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
-
+                            
                         </p:submenu>
-
+                        
                     </p:menu>
                 </p:layoutUnit>
-
+                
                 <p:layoutUnit position="center">
                     <h:form id="f_paciente">
-
-                <p:accordionPanel id="socio_demo"  >
-
-                    <p:tab id="seccion_p" title="Paciente">
-                        <h:panelGrid columns="3" cellpadding="10">
-
-
-                            <h:panelGroup>
-                                <h:outputLabel value="Nombre:"/>
-                                <h:outputLabel style="color:red"  value="*" />
-                            </h:panelGroup>
-                          
-                            <p:inputText id="p_nombre" value="#{paciente.nombre}" required="true"  />
-                            <h:outputLabel/>
+                        
+                        <p:accordionPanel id="socio_demo"  >
                             
-                             <h:panelGroup>
-                                 <h:outputLabel value="Apellidos:" />
-                                 <h:outputLabel style="color:red" value="*" />                              
-                            </h:panelGroup>
-                     
-                            <p:inputText id="p_apellidos" value="#{paciente.apellidos}" required="true" />
-                            <h:outputLabel/>
-
-                             <h:panelGroup>
-                                 <h:outputLabel value="Sexo:" />
-                                 <h:outputLabel style="color:red"  value="*" />                              
-                            </h:panelGroup>
+<!--                            <p:ajax event="tabChange" listener="#{tabbedView.onTabChange}" update=":form:msgs" />
+                            <p:ajax event="tabClose" listener="#{tabbedView.onTabClose}" update=":form:msgs" />-->
                             
-                            <h:selectOneMenu id="p_sexo" value="#{paciente.fenotipoSexual}" >
-                                <f:selectItems value="#{fenotipoSexual.sexos}" />
-                            </h:selectOneMenu>
-                            <h:outputLabel/>
-
-                              <h:panelGroup>
-                                    <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento: " />
-                                 <h:outputLabel style="color:red"  value="*" />                              
-                            </h:panelGroup>
-                          
-                            <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" pattern="dd/MM/yyyy" mask="true" >
-                                <p:ajax event="dateSelect" process="@this"
-                                        listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@form:socio_demo:p_meses, @form:socio_demo:p_dias" />
-                               
-                        </p:calendar>
-                        <h:outputLabel>dd/MM/AAAA</h:outputLabel>   
-                        <h:outputLabel>Meses</h:outputLabel>
-                        <p:inputText id="p_meses" value="#{paciente.meses}"  >
-                        </p:inputText>
-                        <h:outputLabel/>
-
-                        <h:outputLabel>Días de Nacido</h:outputLabel>
-                        <p:inputText id="p_dias" value="#{paciente.dias}"  />
-
-                    </h:panelGrid>
-                </p:tab>
-                <p:tab id="seccion_p2" title="Diagnóstico">
-                    <h:panelGrid columns="2" cellpadding="10">
-
-
-                    </h:panelGrid>
-                </p:tab>
-
-                <p:ajax event="tabChange"  listener="#{vistaPaciente.cambioTab}"  />
-                <p:ajax event="tabClose" listener="#{vistaPaciente.cerroTab}"  />
-                <p:ajax event="tabChange"  
-                        partialSubmit="true" process="seccion_p,seccion_p2"/>
-                <p:ajax event="tabClose"  
-                        partialSubmit="true" process="seccion_p,seccion_p2"/>
-
-            </p:accordionPanel>
-        </h:form>   
+                            <p:tab id="seccion_p" title="Datos Del Paciente">
+                                <h:panelGrid columns="3" cellpadding="10">
+                                    
+                                    
+                                    <h:panelGroup>
+                                        <h:outputLabel value="Nombre:"/>
+                                        <h:outputLabel style="color:red"  value="*" />
+                                    </h:panelGroup>
+                                    
+                                    <p:inputText id="p_nombre" value="#{paciente.nombre}" required="true"  />
+                                    <h:outputLabel/>
+                                    
+                                    <h:panelGroup>
+                                        <h:outputLabel value="Apellidos:" />
+                                        <h:outputLabel style="color:red" value="*" />                              
+                                    </h:panelGroup>
+                                    
+                                    <p:inputText id="p_apellidos" value="#{paciente.apellidos}" required="true" />
+                                    <h:outputLabel/>
+                                    
+                                    <h:panelGroup>
+                                        <h:outputLabel value="Sexo:" />
+                                        <h:outputLabel style="color:red"  value="*" />                              
+                                    </h:panelGroup>
+                                    
+                                    <h:selectOneMenu id="p_sexo" value="#{paciente.fenotipoSexual}" >
+                                        <f:selectItems value="#{fenotipoSexual.sexos}" />
+                                    </h:selectOneMenu>
+                                    <h:outputLabel/>
+                                    
+                                    <h:panelGroup>
+                                        <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento: " />
+                                        <h:outputLabel style="color:red"  value="*" />                              
+                                    </h:panelGroup>
+                                    
+                                    <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" pattern="dd/MM/yyyy" mask="true" >
+                                        <p:ajax event="dateSelect" process="@this"
+                                                listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@form:socio_demo:p_meses, @form:socio_demo:p_dias" />
+                                        
+                                    </p:calendar>
+                                    <h:outputLabel>dd/MM/AAAA</h:outputLabel>   
+                                    <h:outputLabel>Meses</h:outputLabel>
+                                    <p:inputText id="p_meses" value="#{paciente.meses}"  disabled="true" />
+                                    <h:outputLabel/>
+                                    
+                                    <h:outputLabel>Días de Nacido</h:outputLabel>
+                                    <p:inputText id="p_dias" value="#{paciente.dias}"   disabled="true"/>
+                                    
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab id="seccion_p2" title="Diagnóstico">
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    
+                                    
+                                </h:panelGrid>
+                            </p:tab>
+                            
+                            <p:ajax event="tabChange"  listener="#{vistaPaciente.cambioTab}"  partialSubmit="true" process="seccion_p,seccion_p2" />
+                            <p:ajax event="tabClose" listener="#{vistaPaciente.cerroTab}" partialSubmit="true" process="seccion_p,seccion_p2" />
+                            
+                        </p:accordionPanel>
+                    </h:form>   
                 </p:layoutUnit>
-
+                
             </p:layout>
-
+            
         </h:body>
-
+        
     </f:view>
 </html>
 
