@@ -5,6 +5,7 @@
  */
 package co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.config;
 
+import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.services.ServicioPaciente;
 import com.jolbox.bonecp.BoneCPDataSource;
 import java.util.Properties;
 import javax.annotation.Resource;
@@ -80,6 +81,7 @@ public class HistoriClinicaConfig {
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
         return transactionManager;
     }
+
     
     @Bean(name = "sendmail")
     public JavaMailSender mailSender(){

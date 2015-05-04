@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.services;
 
 import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.repositories.RepositorioPaciente;
@@ -22,7 +22,7 @@ public class ServicioPaciente implements ServicioPacienteInt {
     private RepositorioPaciente rp;
     
     public ServicioPaciente(){
-      
+        
     }
     
     /**
@@ -31,9 +31,9 @@ public class ServicioPaciente implements ServicioPacienteInt {
      */
     @PostConstruct
     public void load(){
-         ServiciosDeAplicacionSpring.getServiciosDeAplicacionSpring().addServicio("servicioPaciente", this);
+        ServiciosDeAplicacionSpring.getServiciosDeAplicacionSpring().addServicio("servicioPaciente", this);
     }
-
+    
     /**
      * @return the rp
      */
@@ -41,7 +41,7 @@ public class ServicioPaciente implements ServicioPacienteInt {
     public RepositorioPaciente getRp() {
         return rp;
     }
-
+    
     /**
      * @param rp the rp to set
      */

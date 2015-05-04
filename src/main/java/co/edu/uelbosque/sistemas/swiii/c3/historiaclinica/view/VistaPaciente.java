@@ -27,7 +27,6 @@ import org.primefaces.event.TabCloseEvent;
 @SessionScoped
 public class VistaPaciente implements Serializable {
 
-    @ManagedProperty(value = "#{paciente}")
     private Paciente paciente;
 
     private transient ServicioPacienteInt sp;

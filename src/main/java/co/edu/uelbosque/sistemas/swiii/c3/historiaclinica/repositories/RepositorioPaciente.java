@@ -7,11 +7,13 @@ package co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.repositories;
 
 import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.entities.Paciente;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Alejandro
  */
+@Repository
 public interface RepositorioPaciente extends CrudRepository<Paciente, Long>{
     
     

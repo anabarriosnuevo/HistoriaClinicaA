@@ -1,9 +1,9 @@
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.config;
 
 import org.springframework.web.WebApplicationInitializer;
@@ -19,12 +19,12 @@ import javax.servlet.ServletRegistration.Dynamic;
  */
 public class RestAppInitializer implements WebApplicationInitializer {
     
-	public void onStartup(ServletContext servletContext) throws ServletException {  
-            AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();  
-            ctx.register(HistoriClinicaConfig.class);  
-            ctx.setServletContext(servletContext);    
-            Dynamic dynamic = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));  
-            dynamic.addMapping("/");  
-            dynamic.setLoadOnStartup(1);  
-   }  
+    public void onStartup(ServletContext servletContext) throws ServletException {
+        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
+        ctx.register(HistoriClinicaConfig.class);
+        ctx.setServletContext(servletContext);
+        Dynamic dynamic = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
+        dynamic.addMapping("/");
+        dynamic.setLoadOnStartup(1);
+    }
 } 

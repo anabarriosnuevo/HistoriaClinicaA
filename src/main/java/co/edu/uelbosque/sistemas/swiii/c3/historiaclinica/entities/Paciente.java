@@ -29,8 +29,6 @@ import org.joda.time.PeriodType;
  * @author Alejandro
  */
 @Entity
-@ManagedBean
-@SessionScoped
 public class Paciente implements Serializable {
 
     @Id
