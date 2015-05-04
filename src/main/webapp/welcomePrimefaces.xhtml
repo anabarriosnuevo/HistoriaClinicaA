@@ -68,7 +68,17 @@
                                     </h:panelGroup>
                                     
                                     <h:selectOneMenu id="p_sexo" value="#{vistaPaciente.sexo}" >
-                                        <f:selectItems value="#{fenotipoSexual.sexos}" />
+                                        <f:selectItems value="#{fenotipoSR.sexos}" />
+                                    </h:selectOneMenu>
+                                    <h:outputLabel/>
+                                    
+                                     <h:panelGroup>
+                                        <h:outputLabel value="Raza" />
+                                        <h:outputLabel style="color:red"  value="*" />                              
+                                    </h:panelGroup>
+                                    
+                                    <h:selectOneMenu id="p_sexo" value="#{vistaPaciente.raza}" >
+                                        <f:selectItems value="#{fenotipoSR.razas}" />
                                     </h:selectOneMenu>
                                     <h:outputLabel/>
                                     

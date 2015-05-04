@@ -5,6 +5,9 @@
  */
 package co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.entities;
 
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+
 /**
  *
  * @author Alejandro

@@ -9,6 +9,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.entities.Paciente;
+import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.entities.Raza;
 import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.services.ServicioPacienteInt;
 import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.services.ServiciosDeAplicacionSpring;
 import java.util.Date;
@@ -40,6 +41,7 @@ public class VistaPaciente implements Serializable {
     private int meses;
     private int dias;
     private Date fechaNac;
+    private String raza;
     
     private transient ServicioPacienteInt sp;
     
@@ -152,6 +154,13 @@ public class VistaPaciente implements Serializable {
     public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
     }
-    
-    
+
+    public String getRaza() {
+        return raza;
+    }
+
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+       
 }

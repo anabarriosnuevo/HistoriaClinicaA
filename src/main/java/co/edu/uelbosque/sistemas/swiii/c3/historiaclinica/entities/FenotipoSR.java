@@ -14,9 +14,13 @@ import javax.faces.bean.ManagedBean;
  */
 @ManagedBean
 @ApplicationScoped
-public class FenotipoSexual {
+public class FenotipoSR {
     
     public Sexo[] getSexos(){
         return Sexo.values();
+    }
+    
+    public Raza[] getRazas(){
+        return Raza.values();
     }
 }
