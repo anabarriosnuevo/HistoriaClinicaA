@@ -42,20 +42,16 @@
                     <h:form id="f_paciente">
                         
                         <p:accordionPanel id="socio_demo"  >
-                            
-<!--                            <p:ajax event="tabChange" listener="#{tabbedView.onTabChange}" update=":form:msgs" />
-                            <p:ajax event="tabClose" listener="#{tabbedView.onTabClose}" update=":form:msgs" />-->
-                            
+
                             <p:tab id="seccion_p" title="Datos Del Paciente">
                                 <h:panelGrid columns="3" cellpadding="10">
-                                    
                                     
                                     <h:panelGroup>
                                         <h:outputLabel value="Nombre:"/>
                                         <h:outputLabel style="color:red"  value="*" />
                                     </h:panelGroup>
                                     
-                                    <p:inputText id="p_nombre" value="#{vistaPaciente.paciente.nombre}" required="true"  />
+                                    <p:inputText id="p_nombre" value="#{vistaPaciente.nombre}" />
                                     <h:outputLabel/>
                                     
                                     <h:panelGroup>
@@ -63,7 +59,7 @@
                                         <h:outputLabel style="color:red" value="*" />                              
                                     </h:panelGroup>
                                     
-                                    <p:inputText id="p_apellidos" value="#{vistaPaciente.paciente.apellidos}" required="true" />
+                                    <p:inputText id="p_apellidos" value="#{vistaPaciente.apellido}" />
                                     <h:outputLabel/>
                                     
                                     <h:panelGroup>
@@ -71,7 +67,7 @@
                                         <h:outputLabel style="color:red"  value="*" />                              
                                     </h:panelGroup>
                                     
-                                    <h:selectOneMenu id="p_sexo" value="#{vistaPaciente.paciente.fenotipoSexual}" >
+                                    <h:selectOneMenu id="p_sexo" value="#{vistaPaciente.sexo}" >
                                         <f:selectItems value="#{fenotipoSexual.sexos}" />
                                     </h:selectOneMenu>
                                     <h:outputLabel/>
@@ -81,18 +77,18 @@
                                         <h:outputLabel style="color:red"  value="*" />                              
                                     </h:panelGroup>
                                     
-                                    <p:calendar id="p_nacimiento"  immediate="true"  value="#{vistaPaciente.paciente.fechaNacimiento}" pattern="dd/MM/yyyy" mask="true" >
+                                    <p:calendar id="p_nacimiento"  immediate="true"  value="#{vistaPaciente.fechaNac}" pattern="dd/MM/yyyy" mask="true" >
                                         <p:ajax event="dateSelect" process="@this"
                                                 listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@form:socio_demo:p_meses, @form:socio_demo:p_dias" />
                                         
                                     </p:calendar>
                                     <h:outputLabel>dd/MM/AAAA</h:outputLabel>   
                                     <h:outputLabel>Meses</h:outputLabel>
-                                    <p:inputText id="p_meses" value="#{vistaPaciente.paciente.meses}"  disabled="true" />
+                                    <p:inputText id="p_meses" value="#{vistaPaciente.meses}"  disabled="true" />
                                     <h:outputLabel/>
                                     
                                     <h:outputLabel>Días de Nacido</h:outputLabel>
-                                    <p:inputText id="p_dias" value="#{vistaPaciente.paciente.dias}"   disabled="true"/>
+                                    <p:inputText id="p_dias" value="#{vistaPaciente.dias}"   disabled="true"/>
                                     
                                 </h:panelGrid>
                             </p:tab>
@@ -103,8 +99,8 @@
                                 </h:panelGrid>
                             </p:tab>
                             
-                            <p:ajax event="tabChange"  listener="#{vistaPaciente.cambioTab}"  process="@form:socio_demo:seccion_p, @form:socio_demo:seccion_p2" />
-                            <p:ajax event="tabClose" listener="#{vistaPaciente.cerroTab}" process="@form:socio_demo:seccion_p, @form:socio_demo:seccion_p2" />
+                            <p:ajax event="tabChange"  listener="#{vistaPaciente.cambioTab}" />
+                            <p:ajax event="tabClose" listener="#{vistaPaciente.cerroTab}" />
                             
                         </p:accordionPanel>
                     </h:form>   
