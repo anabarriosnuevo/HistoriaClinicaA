@@ -48,23 +48,20 @@
                                     
                                     <h:panelGroup>
                                         <h:outputLabel value="Nombre:"/>
-                                        <h:outputLabel style="color:red"  value="*" />
                                     </h:panelGroup>
                                     
                                     <p:inputText id="p_nombre" value="#{vistaPaciente.nombre}" />
                                     <h:outputLabel/>
                                     
                                     <h:panelGroup>
-                                        <h:outputLabel value="Apellidos:" />
-                                        <h:outputLabel style="color:red" value="*" />                              
+                                        <h:outputLabel value="Apellidos:" />                            
                                     </h:panelGroup>
                                     
                                     <p:inputText id="p_apellidos" value="#{vistaPaciente.apellido}" />
                                     <h:outputLabel/>
                                     
                                     <h:panelGroup>
-                                        <h:outputLabel value="Sexo:" />
-                                        <h:outputLabel style="color:red"  value="*" />                              
+                                        <h:outputLabel value="Sexo:" />                           
                                     </h:panelGroup>
                                     
                                     <h:selectOneMenu id="p_sexo" value="#{vistaPaciente.sexo}" >
@@ -72,24 +69,13 @@
                                     </h:selectOneMenu>
                                     <h:outputLabel/>
                                     
-                                     <h:panelGroup>
-                                        <h:outputLabel value="Raza" />
-                                        <h:outputLabel style="color:red"  value="*" />                              
-                                    </h:panelGroup>
-                                    
-                                    <h:selectOneMenu id="p_sexo" value="#{vistaPaciente.raza}" >
-                                        <f:selectItems value="#{fenotipoSR.razas}" />
-                                    </h:selectOneMenu>
-                                    <h:outputLabel/>
-                                    
                                     <h:panelGroup>
-                                        <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento: " />
-                                        <h:outputLabel style="color:red"  value="*" />                              
+                                        <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento: " />                          
                                     </h:panelGroup>
                                     
                                     <p:calendar id="p_nacimiento"  immediate="true"  value="#{vistaPaciente.fechaNac}" pattern="dd/MM/yyyy" mask="true" >
                                         <p:ajax event="dateSelect" process="@this"
-                                                listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@form:socio_demo:p_meses, @form:socio_demo:p_dias" />
+                                                listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@form" />
                                         
                                     </p:calendar>
                                     <h:outputLabel>dd/MM/AAAA</h:outputLabel>   
@@ -110,8 +96,8 @@
                                 </h:panelGrid>
                             </p:tab>
                             
-                            <p:ajax event="tabChange"  listener="#{vistaPaciente.cambioTab}" />
-                            <p:ajax event="tabClose" listener="#{vistaPaciente.cerroTab}" />
+                            <p:ajax event="onTabChange"  listener="#{vistaPaciente.cambioTab}" />
+                            <p:ajax event="onTabClose" listener="#{vistaPaciente.cerroTab}" />
                             
                         </p:accordionPanel>
                     </h:form>   
