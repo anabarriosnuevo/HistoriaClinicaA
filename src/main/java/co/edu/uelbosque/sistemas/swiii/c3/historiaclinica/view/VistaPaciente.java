@@ -81,7 +81,7 @@ public class VistaPaciente implements Serializable {
     
     @PostConstruct
     public void injectSpringServiceManually() {
-        String name = "servicioPaciente";
+        String name = "servicioPacientes";
         this.sp = ServiciosDeAplicacionSpring.getServiciosDeAplicacionSpring().getServicioPaciente(name);
     }
     
