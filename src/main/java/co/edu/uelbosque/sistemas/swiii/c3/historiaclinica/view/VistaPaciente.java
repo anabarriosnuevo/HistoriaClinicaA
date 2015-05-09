@@ -29,7 +29,7 @@ import org.primefaces.event.TabCloseEvent;
  * @author Alejandro
  */
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class VistaPaciente implements Serializable {
     
     private Paciente paciente;
@@ -55,10 +55,6 @@ public class VistaPaciente implements Serializable {
     }
     
     private void salvarPaciente() {
-        
-        if (paciente == null) {
-            paciente = new Paciente();
-        }
         
         paciente.setApellidos(this.apellido);
         paciente.setDias(this.dias);
